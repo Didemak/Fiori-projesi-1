@@ -1,0 +1,69 @@
+<!DOCTY "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xht />
+<title>ZDAK_AFIS_YARATS_CREATE_ENTITY</title>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZDAK_AFIS_YARATS_CREATE_ENTITY</h2>
+<h3> Description: Redefined: Redefined: Redefined:</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+***************<br />
+*&nbsp;&nbsp;&nbsp;Method&nbsp;attributes.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br />
+**********<br />
+   </div>
+   <div class="code">
+Instantiation: Private<br />
+   </div>
+   <div class="codeComment">
+********************<br />
+<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;METHOD&nbsp;zdak_afis_yarats_create_entity.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;DATA&nbsp;ls_request_input_data&nbsp;TYPE&nbsp;zcl_zdak_afis_yaratma_mpc=&gt;ts_zdak_afis_yarat.<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;DATA&nbsp;ls_savedata&nbsp;TYPE&nbsp;zdak_afis_yarat.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;io_data_provider-&gt;read_entry_data(&nbsp;IMPORTING&nbsp;es_data&nbsp;=&nbsp;ls_request_input_data&nbsp;).<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;MOVE-CORRESPONDING&nbsp;ls_request_input_data&nbsp;TO&nbsp;ls_savedata.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;zdak_afis_yarat&nbsp;FROM&nbsp;&nbsp;ls_savedata.<br />
+<br />
+<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;DATA&nbsp;ls_afis&nbsp;TYPE&nbsp;zcl_zdak_afis_yaratma_mpc=&gt;ts_zdak_afis_yarat.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;DATA&nbsp;lt_savedata&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;zdak_afis_yarat.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;io_data_provider-&gt;read_entry_data(&nbsp;IMPORTING&nbsp;es_data&nbsp;=&nbsp;ls_afis&nbsp;).<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;FUNCTION&nbsp;'NUMBER_GET_NEXT'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nr_range_nr&nbsp;=&nbsp;'01'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;'Z_NRAFIS'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IMPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;ls_afis-afis_id.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;MOVE-CORRESPONDING&nbsp;ls_afis&nbsp;TO&nbsp;ls_savedata.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SELECT&nbsp;*&nbsp;FROM&nbsp;zdak_afis_yarat&nbsp;INTO&nbsp;CORRESPONDING&nbsp;FIELDS&nbsp;OF&nbsp;TABLE&nbsp;lt_savedata.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;APPEND&nbsp;ls_savedata&nbsp;TO&nbsp;lt_savedata.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;zdak_afis_yarat&nbsp;FROM&nbsp;TABLE&nbsp;lt_savedata.<br />
+<br />
+&nbsp;&nbsp;ENDMETHOD.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>

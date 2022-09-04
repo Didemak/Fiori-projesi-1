@@ -1,0 +1,108 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:t="sap.ui.table">
+    <Dialog id="helloDialog"  resizable="true" draggable="true" contentWidth="20%" class="sapUiSizeCompact">
+        <Panel>
+            <content>
+                <Label showColon="true" text="Afiş Adı" required="true" />
+                <Input id="name" class="sapUiSmallMarginBottom"  required="true"/>
+                <Label showColon="true" text="Açıklama" required="true"/>
+                <Input id="info" type="Text" class="sapUiSmallMarginBottom"  required="true" />
+                <Label text="Başlangıç Tarihi" labelFor="DP" showColon="true" required="true" />
+                <DateTimeInput id="startyear" type="Date" width="100%" displayFormat="short" class="sapUiSmallMarginBottom"  required="true"/>
+                <Label text="Bitiş Tarihi" labelFor="DTI1" showColon="true" required="true" />
+                <DateTimeInput id="endyear" type="Date" displayFormat="short" class="sapUiSmallMarginBottom"  required="true"/>
+            </content>
+        </Panel>
+    </Dialog>
+   
+
+    <!-- <Dialog title="01.01.2021 - 31.12.9999 ~ Değişiklik Belgeleri" contentWidth="50%" class="sapUiSizeCompact">
+
+    <Panel>
+
+      <t:Table rows="{document>/dataList}" selectionMode="None" ariaLabelledBy="title" enableSelectAll="false">
+
+        <t:columns>
+
+          <t:Column autoResizable="true">
+
+            <Label text="Değiştirilen Alan"/>
+
+            <t:template>
+
+              <Text text="{document>alan}"/>
+
+            </t:template>
+
+          </t:Column>
+
+          <t:Column autoResizable="true">
+
+            <Label text="Eski Değer"/>
+
+            <t:template>
+
+              <Text text="{document>eski}"/>
+
+            </t:template>
+
+          </t:Column>
+
+          <t:Column autoResizable="true">
+
+            <Label text="Yeni Değer"/>
+
+            <t:template>
+
+              <Text text="{document>yeni}"/>
+
+            </t:template>
+
+          </t:Column>
+
+          <t:Column autoResizable="true">
+
+            <Label text="Değişikliği Yapan"/>
+
+            <t:template>
+
+              <Text text="{document>kisi}"/>
+
+            </t:template>
+
+          </t:Column>
+
+          <t:Column autoResizable="true">
+
+            <Label text="Değiştirilme Tarihi"/>
+
+            <t:template>
+
+              <Text text="{document>tarih3}"/>
+
+            </t:template>
+
+          </t:Column>
+
+          <t:Column autoResizable="true">
+
+            <Label text="Değiştirilme Saati"/>
+
+            <t:template>
+
+              <Text text="{document>saat}"/>
+
+            </t:template>
+
+          </t:Column>
+
+        </t:columns>
+
+      </t:Table>
+
+    </Panel>
+
+  </Dialog> -->
+  </core:FragmentDefinition>

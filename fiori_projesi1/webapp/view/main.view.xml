@@ -1,0 +1,70 @@
+<mvc:View controllerName="fioriprojesi1.controller.main"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:t="sap.ui.table"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+   class="viewPadding"
+	xmlns="sap.m" height="100%">
+	<App>
+		<Page id="page" title="{i18n>title}">
+			<content>
+				<Toolbar class="sapUiMediumMarginTop" id="toolbar3">
+					<Label text="">
+					</Label>
+					<ToolbarSpacer/>
+					<Button press="onExport" text="Excel" icon="sap-icon://excel-attachment" width="15%" type="Transparent" tooltip="Excel Download"/>
+					<Button press="handleOpen" text="Afiş Yarat" icon="sap-icon://add" width="15%" ariaHasPopup="Dialog" tooltip="Afiş Yarat"/>
+				</Toolbar>
+				<Panel>
+					<t:Table id="table" cellClick="{afis>/}" enableSelectAll="false" rows="{afis>/}" visibleRowCount="10" selectionMode="MultiToggle" rowSelectionChange="onContainerOpen">
+						<t:columns>
+							<t:Column width="10rem">
+								<Label text="Afiş ID"/>
+								<t:template>
+									<Text text="{afis>AfisId}" />
+								</t:template>
+							</t:Column>
+							<t:Column width="15rem">
+								<Label text="Afiş Adı"/>
+								<t:template>
+									<Text text="{afis>AfisAdi}"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="15rem">
+								<Label text="Açıklama"/>
+								<t:template>
+									<Text text="{afis>Aciklama}" />
+								</t:template>
+							</t:Column>
+							<t:Column width="15rem">
+								<Label text="Başlangıç Tarihi" />
+								<t:template>
+									<Text text="{	path :'afis>BaslTarih',
+                                                    type: 'sap.ui.model.type.Date',
+                                                    formatOptions: { pattern: 'dd.MM.yyyy'}
+												}"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="15rem">
+								<Label text="Bitiş Tarihi"/>
+								<t:template>
+									<Text text="{	path :'afis>BitsTarih',
+													type: 'sap.ui.model.type.Date',
+                                                    formatOptions: { pattern: 'dd.MM.yyyy'}
+												}"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="5rem">
+								<Label text=""/>
+								<t:template>
+									<Button icon="sap-icon://delete" press="tableRowDelete" />
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:Table>
+				</Panel>
+			</content >
+		</Page>
+	</App>
+</mvc:View>
